@@ -13,7 +13,7 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 2.8.9)
-project(EtcTest)
+project(EtcTest VERSION 0.0)
 
 include(GNUInstallDirs)
 

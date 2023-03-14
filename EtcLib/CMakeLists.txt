@@ -21,10 +21,26 @@ file(GLOB SOURCES
 	${PROJECT_SOURCE_DIR}/EtcCodec/*.h
 	${PROJECT_SOURCE_DIR}/Etc/*.cpp
 	${PROJECT_SOURCE_DIR}/EtcCodec/*.cpp)
-ADD_LIBRARY(EtcLib ${SOURCES})
+ADD_LIBRARY(EtcLib SHARED ${SOURCES})
 
 install(TARGETS EtcLib
+  EXPORT EtcLibTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+install(EXPORT EtcLibTargets
+  FILE EtcLibTargets.cmake
+  NAMESPACE etc::
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/etc2comp)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    "EtcLibConfigVersion.cmake"
+    VERSION ${EtcTest_VERSION}
+    COMPATIBILITY AnyNewerVersion)
+install(FILES
+  EtcLibConfig.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/EtcLibConfigVersion.cmake
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/etc2comp)
 
 install(DIRECTORY ./Etc DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
