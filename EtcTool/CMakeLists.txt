@@ -25,4 +25,5 @@ file(GLOB SOURCES
 add_executable(EtcTool ${SOURCES})
 
 target_link_libraries (EtcTool EtcLib)
-
+install(TARGETS EtcTool
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
