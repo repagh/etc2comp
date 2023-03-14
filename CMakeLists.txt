@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.16.0)
 project(EtcTest VERSION 0.0)
 
 include(GNUInstallDirs)
