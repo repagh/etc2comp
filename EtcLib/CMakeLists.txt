@@ -31,7 +31,7 @@ install(TARGETS EtcLib
 install(EXPORT EtcLibTargets
   FILE EtcLibTargets.cmake
   NAMESPACE etc::
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/etc2comp)
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/EtcLib)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
@@ -41,6 +41,6 @@ write_basic_package_version_file(
 install(FILES
   EtcLibConfig.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/EtcLibConfigVersion.cmake
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/etc2comp)
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/EtcLib)
 
 install(DIRECTORY ./Etc DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
